@@ -6,7 +6,7 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 15:08:36 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/12 16:43:41 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/12 18:41:56 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ static int	ft_issign(int *sign, char sn)
 
 int	ft_atoi(const char *str, int *nbr)
 {
-	size_t	res;
-	int		sign;
+	long long	res;
+	int			sign;
 
 	res = 0;
 	while (ft_isspace(*str))
@@ -51,11 +51,11 @@ int	ft_atoi(const char *str, int *nbr)
 		str++;
 		if (res > INT_MAX && sign == 1)
 			return (-1);
-		if (res > (unsigned long long)INT_MAX && sign == -1)
-			return (0);
+		if (res > (long long)INT_MAX + 1 && sign == -1)
+			return (-1);
 	}
-	if (*str == -1)
-		return (-1);
+	// if (*str == -1)
+	// 	return (-1);
 	*nbr = sign * res;
 	return (0);
 }

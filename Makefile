@@ -6,7 +6,7 @@
 #    By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/11 11:34:53 by wdwain            #+#    #+#              #
-#    Updated: 2022/03/12 17:15:42 by wdwain           ###   ########.fr        #
+#    Updated: 2022/03/12 17:28:28 by wdwain           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRC = ft_atoi.c \
 		ft_putstr_fd.c \
 		ft_putnbr_fd.c \
 		ft_putchar_fd.c \
-		prints.c \
+		utils.c \
 		ft_strlen.c
 
 OBJ = $(SRC:.c=.o)
