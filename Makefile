@@ -6,7 +6,7 @@
 #    By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/11 11:34:53 by wdwain            #+#    #+#              #
-#    Updated: 2022/03/13 11:33:03 by wdwain           ###   ########.fr        #
+#    Updated: 2022/03/13 11:34:17 by wdwain           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ HEADER = push_swap.h
 
 SRC = ft_atol.c \
 		ft_split.c \
-		main.c \
+		push_swap.c \
 		ft_putstr_fd.c \
 		ft_putnbr_fd.c \
 		ft_putchar_fd.c \
