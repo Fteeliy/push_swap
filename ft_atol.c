@@ -6,7 +6,7 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 15:08:36 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/13 11:37:03 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/13 14:04:19 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int	ft_atol(const char *str, int *nbr)
 	res = 0;
 	while (ft_isspace(*str))
 		str++;
+	if (!ft_isdigit(*str))
+		return (-1);
 	str += ft_issign(&sign, *str);
 	while (*str && ft_isdigit(*str))
 	{

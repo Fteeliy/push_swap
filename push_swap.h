@@ -6,7 +6,7 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 11:33:25 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/13 11:34:49 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/13 14:42:32 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 
 typedef struct s_list
 {
-	int	*content;
-	int	score_a;
-	int	score_b;
-	struct s_list *next;
+	void			*content;
+	int				score_a;
+	int				score_b;
+	struct s_list	*next;
 	
 } t_list;
 

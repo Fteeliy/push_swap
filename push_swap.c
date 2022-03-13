@@ -6,7 +6,7 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 11:48:20 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/13 11:35:04 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/13 16:43:45 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,33 +105,16 @@ void	init_struct_t_all(t_all *ps, int size)
 	ps->len_b = 0;
 }
  
-void swap(int *xp, int *yp)
-{
-    int temp = *xp;
-    *xp = *yp;
-    *yp = temp;
-}
+// // A function to implement bubble sort
  
-// A function to implement bubble sort
-void bubbleSort(int *arr, int size)
-{
-   int i, j;
-   for (i = 0; i < size-1; i++)     
- 
-       // Last i elements are already in place  
-       for (j = 0; j < size - i - 1; j++)
-           if (arr[j] > arr[j+1])
-              swap(&arr[j], &arr[j+1]);
-}
- 
-/* Function to print an array */
-void printArray(int *arr, int size)
-{
-    int i;
-    for (i=0; i < size; i++)
-        printf("%d ", arr[i]);
-    printf("\n");
-}
+// /* Function to print an array */
+// void printArray(int *arr, int size)
+// {
+//     int i;
+//     for (i=0; i < size; i++)
+//         printf("%d ", arr[i]);
+//     printf("\n");
+// }
 
 int main(int argc, char **argv)
 {
@@ -152,11 +135,12 @@ int main(int argc, char **argv)
 		free(ps.stack_a);
 		error("parcing error\n");
 	}
-	printf("Not sorted array: \n");
-    printArray(ps.arr, ps.arr_size);
+	actions(&ps);
+	// printf("Not sorted array: \n");
+    // printArray(ps.arr, ps.arr_size);
 	
-	bubbleSort(ps.arr, ps.arr_size);
+	// bubbleSort(ps.arr, ps.arr_size);
 	
-    printf("Sorted array: \n");
-    printArray(ps.arr, ps.arr_size);
+    // printf("Sorted array: \n");
+    // printArray(ps.arr, ps.arr_size);
 }
