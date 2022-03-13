@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 11:48:20 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/12 20:38:51 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/13 11:35:04 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	parce_argv(int *arr, char **argv)
 		i = 0;
 		while (splited[i])
 		{
-			if (!flag && ft_atoi(splited[i], &arr[count_argv]))
+			if (!flag && ft_atol(splited[i], &arr[count_argv]))
 				flag = -1;
 			count_argv++;
 			free(splited[i++]);

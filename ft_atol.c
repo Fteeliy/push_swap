@@ -6,7 +6,7 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 15:08:36 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/13 11:33:44 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/13 11:37:03 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int	ft_issign(int *sign, char sn)
 	return (0);
 }
 
-int	ft_atoi(const char *str, int *nbr)
+int	ft_atol(const char *str, int *nbr)
 {
 	size_t	res;
 	int		sign;
