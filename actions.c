@@ -6,7 +6,7 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 14:36:57 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/13 16:46:45 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/13 17:38:51 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void bubbleSort(int *arr, int size)
 
 int		sorted(t_all *lst)
 {
-	while (lst->next)
+	while (lst && lst->next)
 	{
 		if ((*(int *)lst->content) > (*(int *)lst->next->content))
 			return (0);
