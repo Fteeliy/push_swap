@@ -6,13 +6,13 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 14:36:57 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/13 17:38:51 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/14 12:27:10 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void swap(int *xp, int *yp)
+void ft_swap(int *xp, int *yp)
 {
     int temp = *xp;
     *xp = *yp;
@@ -38,18 +38,18 @@ void bubbleSort(int *arr, int size)
    j++;
 }
 
-int		sorted(t_all *lst)
+int	sorted(t_all *lst)
 {
 	while (lst && lst->next)
 	{
-		if ((*(int *)lst->content) > (*(int *)lst->next->content))
+		if (*(int *)(lst->content) > *(int *)(lst->next->content))
 			return (0);
 		lst = lst->next;
 	}
 	return (1);
 }
 
-void	fill_sort(t_all *ps)
+void	fill_lst(t_all *ps)
 {
 	t_list	*tmplst;
 	int		*tmpnbr;
@@ -79,11 +79,14 @@ void	fill_sort(t_all *ps)
 
 void	actions(t_all *ps)
 {
-	fill_sort(ps);
+	fill_lst(ps);
 	if (sotred(ps->stack_a) == -1)
 	{
 		// ft_lst_clear();
 		return (-1);
 	}
 	bubbleSort(ps->arr, ps->arr_size);
+	sort_distributor(ps);
+
+	return (0);
 }

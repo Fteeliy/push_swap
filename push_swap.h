@@ -6,7 +6,7 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 11:33:25 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/13 17:04:05 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/14 11:49:20 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,9 @@ void	ft_putchar_fd(char c, int fd);
 size_t	ft_strlen(const char *str);
 t_list	*ft_lstnew(void *content);
 t_list	*ft_lstlast(t_list *lst);
+int		ft_lstsize(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 #endif

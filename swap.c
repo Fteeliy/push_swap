@@ -1,26 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/11 13:36:30 by wjasmine          #+#    #+#             */
-/*   Updated: 2022/03/14 12:23:49 by wdwain           ###   ########.fr       */
+/*   Created: 2022/03/14 12:26:14 by wdwain            #+#    #+#             */
+/*   Updated: 2022/03/14 13:01:55 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+static	void	swap(t_list **node)
 {
-	if (*lst == NULL)
-	{
-		*lst = new;
+	t_list	*tmp;
+
+	if (ft_lstsize(*node) < 2)
 		return ;
-	}
-	if (new == NULL)
-		return ;
-	new->next = *lst;
-	*lst = new;
+	tmp = *node;
+	*node = (*node)->next;
+	tmp->next = (*node)->next;
+	(*node)->next = tmp;
+}
+
+void	sa(t_all *ps)
+{
+	swap(ps->stack_a);
+	ft_putstr_fd("sa\n", 1);
+}
+
+void	sb(t_all *ps)
+{
+	swap(ps->stack_b);
+	ft_putstr_fd("sb\n", 1);
+}
+
+void	ss(t_all *ps)
+{
+	sa(ps);
+	sb(ps);
+	ft_putstr_fd("ssd\n", 1);
 }

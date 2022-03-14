@@ -6,7 +6,7 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 11:48:20 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/13 20:17:44 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/14 11:41:29 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int	ft_count_arrays(char **argv)
 	count_argv = 0;
 	while (*argv)
 	{
+		if (!ft_strncmp("", *argv, 1) || !ft_strncmp (" ", *argv, 2))
+			error("Error empty argument\n");
 		splited = ft_split(*argv++, ' ');
 		if (!splited)
 			error("malloc error\n");
@@ -63,10 +65,9 @@ int	parce_argv(int *arr, char **argv)
 	int		flag;
 	int		count_argv;
 
-	i = 0;
 	count_argv = 0;
 	flag = 0;
-	while (*argv)
+	while (flag != -1 && *argv)
 	{
 		splited = ft_split(*argv++, ' ');
 		if (!splited)
@@ -74,7 +75,7 @@ int	parce_argv(int *arr, char **argv)
 		i = 0;
 		while (splited[i])
 		{
-			if (!flag && ft_atol(splited[i], &arr[count_argv]))
+			if (!flag && ft_atol(splited[i], &arr[count_argv]) == -1)
 				flag = -1;
 			count_argv++;
 			free(splited[i++]);
@@ -135,7 +136,9 @@ int main(int argc, char **argv)
 		free(ps.stack_a);
 		error("parcing error\n");
 	}
-	actions(&ps);
+	if (actions(&ps) == -1)
+		error("Error\n");
+	return (0);
 	// printf("Not sorted array: \n");
     // printArray(ps.arr, ps.arr_size);
 	

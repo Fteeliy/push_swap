@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/11 13:36:30 by wjasmine          #+#    #+#             */
-/*   Updated: 2022/03/14 12:23:49 by wdwain           ###   ########.fr       */
+/*   Created: 2022/03/13 16:44:31 by wjasmine          #+#    #+#             */
+/*   Updated: 2022/03/14 11:49:06 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+int	ft_lstsize(t_list *lst)
 {
-	if (*lst == NULL)
+	int	i;
+
+	i = 0;
+	while (lst != NULL)
 	{
-		*lst = new;
-		return ;
+		lst = lst->next;
+		i++;
 	}
-	if (new == NULL)
-		return ;
-	new->next = *lst;
-	*lst = new;
+	return (i);
 }
