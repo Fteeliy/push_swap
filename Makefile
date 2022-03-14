@@ -6,7 +6,7 @@
 #    By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/11 11:34:53 by wdwain            #+#    #+#              #
-#    Updated: 2022/03/14 11:48:54 by wdwain           ###   ########.fr        #
+#    Updated: 2022/03/14 15:55:59 by wdwain           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,11 @@ SRC = ft_atol.c \
 		ft_lstadd_front.c \
 		utils.c \
 		ft_strlen.c \
-		ft_strncmp.c
+		ft_strncmp.c \
+		push.c \
+		swap.c \
+		rotate.c \
+		reverse_rotate.c \
 		
 OBJ = $(SRC:.c=.o)
 

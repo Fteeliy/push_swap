@@ -1,44 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/14 12:26:14 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/14 13:54:42 by wdwain           ###   ########.fr       */
+/*   Created: 2022/03/14 13:47:47 by wdwain            #+#    #+#             */
+/*   Updated: 2022/03/14 14:03:44 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static	void	swap(t_list **node)
+static	void	rot(t_list **node)
 {
 	t_list	*tmp;
 
-	if (ft_lstsize(*node) < 2)
+	if (!(*node) || !(*node)->next)
 		return ;
 	tmp = *node;
 	*node = (*node)->next;
-	tmp->next = (*node)->next;
-	(*node)->next = tmp;
+	ft_lstadd_back(node, tmp);
+	tmp->next = NULL;
 }
 
-void	sa(t_all *ps)
+void	ra(t_all *ps)
 {
-	swap(ps->stack_a);
-	ft_putstr_fd("sa\n", 1);
+	rot_first_to_last(&ps->stack_a);
+	ft_putstr_fd("ra\n", 1);
 }
 
-void	sb(t_all *ps)
+void	rb(t_all *ps)
 {
-	swap(ps->stack_b);
-	ft_putstr_fd("sb\n", 1);
+	rot_first_to_last(&ps->stack_b);
+	ft_putstr_fd("rb\n", 1);
 }
 
-void	ss(t_all *ps)
+void	rr(t_all *ps)
 {
-	sa(ps);
-	sb(ps);
-	ft_putstr_fd("ss\n", 1);
+	ra(ps);
+	rb(ps);
+	ft_putstr_fd("rr\n", 1);
 }

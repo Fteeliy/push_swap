@@ -6,11 +6,21 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 14:36:57 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/14 12:27:10 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/14 19:44:40 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	sort_distributor(t_all *ps)
+{
+	if (ps->stack_a == 2)
+		sa(ps);
+	else if (ps->stack_a == 3)
+		sort3(ps);
+	else if (ps->stack_a == 5)
+		sort5(ps);
+}
 
 void ft_swap(int *xp, int *yp)
 {

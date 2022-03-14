@@ -6,7 +6,7 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 11:33:25 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/14 11:49:20 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/14 18:36:10 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
-
-typedef struct s_test
-{
-	int	*a;
-	int	b;
-	struct s_text	*next;
-	
-} t_test;
 
 typedef struct s_list
 {
