@@ -6,7 +6,7 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 14:36:57 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/14 19:44:40 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/14 22:07:34 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	sort_distributor(t_all *ps)
 		sort3(ps);
 	else if (ps->stack_a == 5)
 		sort5(ps);
+	else
+		sort(ps);
 }
 
 void ft_swap(int *xp, int *yp)
