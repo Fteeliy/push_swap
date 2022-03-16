@@ -6,7 +6,7 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 14:36:57 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/16 15:25:40 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/16 15:54:04 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	fill_lst(t_all *ps)
 			free(tmplst);
 			free(tmpnbr);
 			lst_clear(&ps->stack_a, free);
-			error("error list filing");
+			error("Error\n");
 		}
 		ft_lstadd_back(ps->stack_a, tmpnbr);
 		i++;

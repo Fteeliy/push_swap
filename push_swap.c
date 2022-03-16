@@ -6,7 +6,7 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 11:48:20 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/16 15:20:19 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/16 15:44:40 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ int	ft_count_arrays(char **argv)
 	while (*argv)
 	{
 		if (!ft_strncmp("", *argv, 1) || !ft_strncmp (" ", *argv, 2))
-			error("Error empty argument\n");
+			error("Error\n");
 		splited = ft_split(*argv++, ' ');
 		if (!splited)
-			error("malloc error\n");
+			error("Error\n");
 		i = 0;
 		while (splited[i])
 		{
@@ -70,7 +70,7 @@ int	parce_argv(int *arr, char **argv)
 	{
 		splited = ft_split(*argv++, ' ');
 		if (!splited)
-			error("malloc error\n");
+			error("Error\n");
 		i = 0;
 		while (splited[i])
 		{
@@ -92,7 +92,7 @@ void	init_struct_t_all(t_all *ps, int size)
 	if (array == NULL)
 	{
 		free(array);
-		error("malloc error\n");
+		error("Error\n");
 	}
 	
 	ps->stack_a = NULL;
