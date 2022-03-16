@@ -6,7 +6,7 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 13:47:47 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/14 14:03:44 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/16 15:22:53 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,19 @@ static	void	rot(t_list **node)
 
 void	ra(t_all *ps)
 {
-	rot_first_to_last(&ps->stack_a);
+	rot(&ps->stack_a);
 	ft_putstr_fd("ra\n", 1);
 }
 
 void	rb(t_all *ps)
 {
-	rot_first_to_last(&ps->stack_b);
+	rot(&ps->stack_b);
 	ft_putstr_fd("rb\n", 1);
 }
 
 void	rr(t_all *ps)
 {
-	ra(ps);
-	rb(ps);
+	rot(&ps->stack_a);
+	rot(&ps->stack_b);
 	ft_putstr_fd("rr\n", 1);
 }

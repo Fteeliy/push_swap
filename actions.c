@@ -6,7 +6,7 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 14:36:57 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/16 15:03:34 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/16 15:19:06 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	sort_distributor(t_all *ps)
 		sa(ps);
 	else if (ps->stack_a == 3)
 		sort3(ps);
-	else if (ps->stack_a == 5)
+	else if (ps->stack_a < 6)
 		sort5(ps);
 	else
 		sort(ps);
@@ -35,15 +35,15 @@ void bubbleSort(int *arr, int size)
 	   j = 0;
 	   while (j < size - i - 1)
 	   {
-		    if (arr[j] > arr[j+1])
-            	swap(&arr[j], &arr[j+1]);
+		    if (arr[j] > arr[j + 1])
+            	ft_swap(&arr[j], &arr[j + 1]);
 	   }
 	   j++;
    }
    j++;
 }
 
-int	sorted(t_all *lst)
+int	sorted(t_list *lst)
 {
 	while (lst && lst->next)
 	{
@@ -73,7 +73,7 @@ void	fill_lst(t_all *ps)
 		{
 			free(tmplst);
 			free(tmpnbr);
-			// ft_lst_clear();
+			lst_clear(&ps->stack_a, free);
 			error("error list filing");
 		}
 		ft_lstadd_back(ps->stack_a, tmpnbr);
@@ -85,10 +85,10 @@ void	fill_lst(t_all *ps)
 int	actions(t_all *ps)
 {
 	fill_lst(ps);
-	if (sotred(ps->stack_a) == -1)
+	if (sotred(ps->stack_a))
 	{
-		// ft_lst_clear();
-		return (-1);
+		lst_clear(ps);
+		return (0);
 	}
 	bubbleSort(ps->arr, ps->arr_size);
 	sort_distributor(ps);

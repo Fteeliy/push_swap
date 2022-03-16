@@ -6,7 +6,7 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 12:26:14 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/14 13:54:42 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/16 15:24:38 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	sb(t_all *ps)
 
 void	ss(t_all *ps)
 {
-	sa(ps);
-	sb(ps);
+	swap(ps->stack_a);
+	swap(ps->stack_b);
 	ft_putstr_fd("ss\n", 1);
 }

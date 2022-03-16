@@ -6,7 +6,7 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 11:48:20 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/16 13:44:33 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/16 15:20:19 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,18 +125,16 @@ int main(int argc, char **argv)
 	init_struct_t_all(&ps, ft_count_arrays(&argv[1]));
 	if (parce_argv(ps.arr, &argv[1]) == -1)
 	{
-		free(ps.arr);
-		free(ps.stack_a);
-		error("parcing error\n");
+		lst_clear(&ps);
+		error("Error\n");
 	}
 	if (ft_same_digits(ps.arr, ps.arr_size) == -1)
 	{
-		free(ps.arr);
-		free(ps.stack_a);
-		error("parcing error\n");
-	}
-	if (actions(&ps) == -1)
+		lst_clear(&ps);
 		error("Error\n");
+	}
+	actions(&ps);
+	lst_clear(&ps);
 	return (0);
 	// printf("Not sorted array: \n");
     // printArray(ps.arr, ps.arr_size);

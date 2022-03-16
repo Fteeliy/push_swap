@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rev_rotate.c                                       :+:      :+:    :+:   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 13:54:55 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/14 15:19:05 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/16 15:23:42 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ void	rra(t_all *ps)
 
 void	rrb(t_all *ps)
 {
-	rev_rot(&ps->stack_a);
+	rev_rot(&ps->stack_b);
 	ft_putstr_fd("rrb\n", 1);
 }
 
 void	rrr(t_all *ps)
 {
-	rra(ps);
-	rrb(ps);
+	rev_rot(&ps->stack_a);
+	rev_rot(&ps->stack_b);
 	ft_putstr_fd("rrr\n", 1);
 }
