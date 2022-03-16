@@ -6,7 +6,7 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 14:36:57 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/14 22:07:34 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/16 15:03:34 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,6 @@ void	sort_distributor(t_all *ps)
 		sort5(ps);
 	else
 		sort(ps);
-}
-
-void ft_swap(int *xp, int *yp)
-{
-    int temp = *xp;
-    *xp = *yp;
-    *yp = temp;
 }
 
 void bubbleSort(int *arr, int size)
@@ -89,7 +82,7 @@ void	fill_lst(t_all *ps)
 	ps->arr_len_a = ps->arr_size;
 }
 
-void	actions(t_all *ps)
+int	actions(t_all *ps)
 {
 	fill_lst(ps);
 	if (sotred(ps->stack_a) == -1)

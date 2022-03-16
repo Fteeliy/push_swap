@@ -6,7 +6,7 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 15:08:36 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/13 14:04:19 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/16 14:59:04 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,16 @@ static int	ft_issign(int *sign, char sn)
 
 int	ft_atol(const char *str, int *nbr)
 {
-	size_t	res;
-	int		sign;
+	unsigned long long	res;
+	int					sign;
 
+	sign = 1;
 	res = 0;
 	while (ft_isspace(*str))
 		str++;
+	str += ft_issign(&sign, *str);
 	if (!ft_isdigit(*str))
 		return (-1);
-	str += ft_issign(&sign, *str);
 	while (*str && ft_isdigit(*str))
 	{
 		res = res * 10 + *str - '0';

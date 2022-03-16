@@ -6,12 +6,11 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 11:48:20 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/14 11:41:29 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/16 13:44:33 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 int	ft_same_digits(int *arr, int size)
 {

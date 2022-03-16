@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/09 17:33:23 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/12 17:14:52 by wdwain           ###   ########.fr       */
+/*   Created: 2021/11/04 17:49:07 by wdwain          #+#    #+#             */
+/*   Updated: 2022/03/16 14:58:25 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,23 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	if (n < 0)
+	long	i;
+	char	c;
+
+	i = n;
+	if (i < 0)
 	{
-		n = -n;
-		ft_putchar_fd('-', fd);
+		ft_putchar_fd ('-', fd);
+		i = i * (-1);
 	}
-	if (n == -2147483648)
+	if (i < 10)
 	{
-		ft_putchar_fd('2', fd);
-		n = 147483648;
+		c = ('0' + i);
+		ft_putchar_fd ((char)('0' + i), fd);
 	}
-	if (n < 10)
-		ft_putchar_fd(n + '0', fd);
-	else
+	if (i > 9)
 	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putnbr_fd(n % 10, fd);
+		ft_putnbr_fd (i / 10, fd);
+		ft_putchar_fd ((char)('0' + (i % 10)), fd);
 	}
 }

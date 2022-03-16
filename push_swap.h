@@ -6,7 +6,7 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 11:33:25 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/14 18:36:10 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/16 15:07:56 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,22 +37,23 @@ typedef struct s_all
 	
 } t_all;
 
-void	init_struct_t_all(t_all *ps, int size);
-int		parce_argv(int *not_sorted, char **argv);
-int		ft_count_arrays(char **argv);
-int		ft_same_digits(int *arr, int size);
-int		ft_atol(const char *str, int *nbr);
-char	**ft_split(char const *s, char c);
 void	error(char *message);
+void	ft_swap(int *xp, int *yp);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putchar_fd(char c, int fd);
+void	ft_putendl_fd(char *s, int fd);
 size_t	ft_strlen(const char *str);
+int		ft_atol(const char *str, int *nbr);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+char	**ft_split(char const *s, char c);
 t_list	*ft_lstnew(void *content);
 t_list	*ft_lstlast(t_list *lst);
 int		ft_lstsize(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int		actions(t_all *ps);
+void	sort3(t_all *ps);
+void	sort5(t_all *ps);
 
 #endif
