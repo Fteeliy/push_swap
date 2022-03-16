@@ -6,7 +6,7 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 14:36:57 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/16 15:54:04 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/16 21:10:57 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,25 +22,6 @@ void	sort_distributor(t_all *ps)
 		sort5(ps);
 	else
 		sort(ps);
-}
-
-void bubbleSort(int *arr, int size)
-{
-   int	i;
-   int	j;
-   
-   i = 0;
-   while(i < size - 1)
-   {
-	   j = 0;
-	   while (j < size - i - 1)
-	   {
-		    if (arr[j] > arr[j + 1])
-            	ft_swap(&arr[j], &arr[j + 1]);
-	   }
-	   j++;
-   }
-   j++;
 }
 
 int	sorted(t_list *lst)

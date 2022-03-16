@@ -6,7 +6,7 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 11:33:25 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/16 15:07:56 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/16 21:50:19 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,9 @@ void	ft_lstadd_front(t_list **lst, t_list *new);
 int		actions(t_all *ps);
 void	sort3(t_all *ps);
 void	sort5(t_all *ps);
+int		count_ops(int a, int b);
+void	executor(t_all *ps, t_list *el);
+void	stack_a_sort(t_all *ps);
+void	sort(t_all *ps);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 11:48:20 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/16 15:44:40 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/16 21:10:26 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,17 +104,6 @@ void	init_struct_t_all(t_all *ps, int size)
 	ps->len_a = 0;
 	ps->len_b = 0;
 }
- 
-// // A function to implement bubble sort
- 
-// /* Function to print an array */
-// void printArray(int *arr, int size)
-// {
-//     int i;
-//     for (i=0; i < size; i++)
-//         printf("%d ", arr[i]);
-//     printf("\n");
-// }
 
 int main(int argc, char **argv)
 {
@@ -136,11 +125,4 @@ int main(int argc, char **argv)
 	actions(&ps);
 	lst_clear(&ps);
 	return (0);
-	// printf("Not sorted array: \n");
-    // printArray(ps.arr, ps.arr_size);
-	
-	// bubbleSort(ps.arr, ps.arr_size);
-	
-    // printf("Sorted array: \n");
-    // printArray(ps.arr, ps.arr_size);
 }
