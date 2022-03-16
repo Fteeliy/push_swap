@@ -6,7 +6,7 @@
 #    By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/11 11:34:53 by wdwain            #+#    #+#              #
-#    Updated: 2022/03/14 15:55:59 by wdwain           ###   ########.fr        #
+#    Updated: 2022/03/16 15:28:56 by wdwain           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
 
 %.o: %.c $(HEADER) Makefile
 	$(CC) $(CFLAGS) -I$(HEADER) -c $< -o $@
@@ -52,5 +52,7 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
+
+re: fclean all
 	
 .PHONY: all clean fclean re
