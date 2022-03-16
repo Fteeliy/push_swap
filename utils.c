@@ -6,7 +6,7 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 16:55:14 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/16 21:50:39 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/16 21:54:19 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ void ft_swap(int *xp, int *yp)
     *yp = temp;
 }
 
-void	lst_cleaner(t_push_swap *ps)
+void	lst_cleaner(t_all *ps)
 {
 	free(ps->arr);
-	ft_lstclear(&ps->a, free);
-	ft_lstclear(&ps->b, free);
+	ft_lstclear(&ps->stack_a, free);
+	ft_lstclear(&ps->stack_b, free);
 }
 
 void bubbleSort(int *arr, int size)

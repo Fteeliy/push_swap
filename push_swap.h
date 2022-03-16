@@ -6,7 +6,7 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 11:33:25 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/16 21:50:19 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/16 21:54:03 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_all
 } t_all;
 
 void	error(char *message);
+void	lst_cleaner(t_all *ps);
 void	ft_swap(int *xp, int *yp);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
@@ -52,6 +53,7 @@ t_list	*ft_lstlast(t_list *lst);
 int		ft_lstsize(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);
+void	ft_lstclear(t_list **lst, void (*del)(void *));
 int		actions(t_all *ps);
 void	sort3(t_all *ps);
 void	sort5(t_all *ps);
