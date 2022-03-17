@@ -1,38 +1,61 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/11 11:48:20 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/17 18:45:59 by wdwain           ###   ########.fr       */
+/*   Created: 2022/03/17 16:56:42 by wdwain            #+#    #+#             */
+/*   Updated: 2022/03/17 18:42:29 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "gnl.h"
 #include "push_swap.h"
 
-int	ft_same_digits(int *arr, int size)
+static	void	parcing(t_all *ps, char *line)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < size - 1)
-	{
-		j = i + 1;
-		while (j < size)
-		{
-			if (arr[i] == arr[j])
-				return (-1);
-			j++;
-		}
-		i++;
-	}
-	return (0);
+	if (!ft_strncmp(line, "ra\n", 4))
+		ra(ps, 0);
+	else if (!ft_strncmp(line, "rb\n", 4))
+		rb(ps, 0);
+	else if (!ft_strncmp(line, "rr\n", 4))
+		rr(ps, 0);
+	else if (!ft_strncmp(line, "rra\n", 5))
+		rra(ps, 0);
+	else if (!ft_strncmp(line, "rrb\n", 5))
+		rrb(ps, 0);
+	else if (!ft_strncmp(line, "rrr\n", 5))
+		rrr(ps, 0);
+	else if (!ft_strncmp(line, "pa\n", 4))
+		pa(ps, 0);
+	else if (!ft_strncmp(line, "pb\n", 4))
+		pb(ps, 0);
+	else if (!ft_strncmp(line, "sa\n", 4))
+		sa(ps, 0);
+	else if (!ft_strncmp(line, "sb\n", 4))
+		sb(ps, 0);
+	else if (!ft_strncmp(line, "ss\n", 4))
+		ss(ps, 0);
+	else
+		error("Error\n");
 }
 
-int	ft_count_arrays(char **argv)
+static	void	get_operation(t_all *ps)
+{
+	char	*line;
+
+	line = gnl(STDIN_FILENO);
+	while (line)
+	{
+		parcing(ps, line);
+		free(line);
+		line = gnl(STDIN_FILENO);
+	}
+	free(line);
+}
+
+int	ft_count_arrays_c(char **argv)
 {
 	char	**splited;
 	int		i;
@@ -57,34 +80,7 @@ int	ft_count_arrays(char **argv)
 	return (count_argv);
 }
 
-int	parce_argv(int *arr, char **argv)
-{
-	int		i;
-	char	**splited;
-	int		flag;
-	int		count_argv;
-
-	count_argv = 0;
-	flag = 0;
-	while (flag != -1 && *argv)
-	{
-		splited = ft_split(*argv++, ' ');
-		if (!splited)
-			error("Error\n");
-		i = 0;
-		while (splited != 0 && splited[i])
-		{
-			if (!flag && ft_atol(splited[i], &arr[count_argv]) == -1)
-				flag = -1;
-			count_argv++;
-			free(splited[i++]);
-		}
-		free(splited);
-	}
-	return (flag);
-}
-
-void	init_struct_t_all(t_all *ps, int size)
+void	init_struct_t_all_c(t_all *ps, int size)
 {
 	int	*array;
 
@@ -108,18 +104,23 @@ int	main(int argc, char **argv)
 
 	if (argc == 1)
 		return (EXIT_SUCCESS);
-	init_struct_t_all(&ps, ft_count_arrays(&argv[1]));
-	if (parce_argv(ps.arr, &argv[1]) == -1)
+	init_struct_t_all_c(&ps, ft_count_arrays_c(&argv[1]));
+	if (parce_argv_c(ps.arr, &argv[1]) == -1)
 	{
 		lst_clear(&ps);
 		error("Error\n");
 	}
-	if (ft_same_digits(ps.arr, ps.arr_size) == -1)
+	if (ft_same_digits_c(ps.arr, ps.arr_size) == -1)
 	{
 		lst_clear(&ps);
 		error("Error\n");
 	}
-	actions(&ps);
+	fill_lst(&ps);
+	get_operation(&ps);
+	if (sorted(ps.stack_a) == 1 && ps.len_b == 0)
+		ft_putstr_fd("OK\n", 1);
+	else
+		ft_putstr_fd("KO\n", 1);
 	lst_clear(&ps);
 	return (0);
 }

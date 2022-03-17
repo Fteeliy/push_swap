@@ -6,7 +6,7 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 22:07:42 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/17 12:56:25 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/17 18:57:58 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 static void	fill_b(t_all *ps)
 {
-	while(ps->len_a > 3)
+	while (ps->len_a > 3)
 	{
-		if (*(int *)ps->stack_a->content != ps->arr[0] 
+		if (*(int *)ps->stack_a->content != ps->arr[0]
 			&& *(int *)ps->stack_a->content != ps->arr[ps->arr_size - 1]
 			&& *(int *)ps->stack_a->content != ps->arr[ps->arr_size / 2])
 		{
-			pb(ps);
+			pb(ps, 1);
 			if (*(int *)ps->stack_b->content < ps->arr[ps->arr_size / 2])
-				rb(ps);
+				rb(ps, 1);
 		}
 		else
-			ra(ps);
+			ra(ps, 1);
 	}
 }
 
@@ -40,8 +40,9 @@ static int	search_in_stack_a(t_all *ps, int value_in_b)
 	prev = ft_lstlast(ps->stack_a);
 	while (next != NULL)
 	{
-		if (*(int *)prev->content < value_in_b && *(int *)next->content > value_in_b)
-			return(pos_a);
+		if (*(int *)prev->content < value_in_b \
+		&& *(int *)next->content > value_in_b)
+			return (pos_a);
 		next = next->next;
 		if (prev->next)
 			prev = prev->next;
@@ -61,23 +62,23 @@ static int	scoring(t_all *ps, t_list *el, int i)
 	up_a = search_in_stack_a(ps, *(int *)el->content);
 	el->score_a = -up_a;
 	el->score_b = -up_b;
-	if (count_ops(el->score_a, el->score_b)
-		> count_ops((ps->len_a - up_a), (ps->len_b - up_b)))
+	if (c_ops(el->score_a, el->score_b)
+		> c_ops((ps->len_a - up_a), (ps->len_b - up_b)))
 	{
 		el->score_a = (ps->len_a - up_a);
 		el->score_b = (ps->len_b - up_b);
 	}
-	if (count_ops(el->score_a, el->score_b) > count_ops(-up_a, (ps->len_b - up_b)))
+	if (c_ops(el->score_a, el->score_b) > c_ops(-up_a, (ps->len_b - up_b)))
 	{
 		el->score_a = -up_a;
 		el->score_b = (ps->len_b - up_b);
 	}
-	if (count_ops(el->score_a, el->score_b) > count_ops((ps->len_a - up_a), -up_b))
+	if (c_ops(el->score_a, el->score_b) > c_ops((ps->len_a - up_a), -up_b))
 	{
 		el->score_a = (ps->len_a - up_a);
 		el->score_b = -up_b;
 	}
-	return (count_ops(el->score_a, el->score_b));
+	return (c_ops(el->score_a, el->score_b));
 }
 
 t_list	*current_node(t_all *ps)
@@ -97,7 +98,7 @@ t_list	*current_node(t_all *ps)
 		i++;
 		tmp = tmp->next;
 		min_ops = scoring(ps, tmp, i);
-		if (count_ops(current->score_a, current->score_b) > min_ops)
+		if (c_ops(current->score_a, current->score_b) > min_ops)
 		{
 			current = tmp;
 			min = min_ops;
@@ -112,7 +113,7 @@ void	sort(t_all *ps)
 
 	fill_b(ps);
 	presort3(ps);
-	while(ps->len_b > 0)
+	while (ps->len_b > 0)
 	{
 		tmp = current_node(ps);
 		executor(ps, tmp);

@@ -6,20 +6,18 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 17:31:00 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/12 17:15:23 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/17 18:49:23 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen(const char *ch)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (str[i] != '\0')
-	{
-		i++;
-	}
+	while (ch && ch[i] != '\0')
+		++i;
 	return (i);
 }

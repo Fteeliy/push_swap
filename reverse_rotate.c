@@ -6,7 +6,7 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 13:54:55 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/16 15:23:42 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/17 18:37:52 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 static	void	rev_rot(t_list **node)
 {
 	t_list	*tmp;
-	
-	if(!(*node) || !(*node)->next)
+
+	if (!(*node) || !(*node)->next)
 		return ;
 	tmp = *node;
 	while (tmp->next->next != NULL)
@@ -26,21 +26,24 @@ static	void	rev_rot(t_list **node)
 	tmp->next = NULL;
 }
 
-void	rra(t_all *ps)
+void	rra(t_all *ps, int flag)
 {
 	rev_rot(&ps->stack_a);
-	ft_putstr_fd("rra\n", 1);
+	if (flag)
+		ft_putstr_fd("rra\n", 1);
 }
 
-void	rrb(t_all *ps)
+void	rrb(t_all *ps, int flag)
 {
 	rev_rot(&ps->stack_b);
-	ft_putstr_fd("rrb\n", 1);
+	if (flag)
+		ft_putstr_fd("rrb\n", 1);
 }
 
-void	rrr(t_all *ps)
+void	rrr(t_all *ps, int flag)
 {
 	rev_rot(&ps->stack_a);
 	rev_rot(&ps->stack_b);
-	ft_putstr_fd("rrr\n", 1);
+	if (flag)
+		ft_putstr_fd("rrr\n", 1);
 }

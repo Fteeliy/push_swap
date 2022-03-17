@@ -6,7 +6,7 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 14:36:57 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/17 13:41:11 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/17 18:57:44 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	sort_distributor(t_all *ps)
 {
 	if (ps->len_a == 2)
-		sa(ps);
+		sa(ps, 1);
 	else if (ps->len_a == 3)
 		sort3(ps);
 	else if (ps->len_a < 6)
@@ -42,7 +42,7 @@ void	fill_lst(t_all *ps)
 	int		i;
 
 	i = 0;
-	while(i < ps->arr_size)
+	while (i < ps->arr_size)
 	{
 		tmpnbr = (int *)malloc(sizeof(int) * 1);
 		if (tmpnbr)
@@ -71,10 +71,7 @@ int	actions(t_all *ps)
 		lst_clear(ps);
 		return (0);
 	}
-	// print_lst(ps->stack_a);
-	bubbleSort(ps->arr, ps->arr_size);
-	// print_arr(ps->arr, ps->arr_size);
+	bubble_sort(ps->arr, ps->arr_size);
 	sort_distributor(ps);
-
 	return (0);
 }

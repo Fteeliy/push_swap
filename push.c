@@ -6,7 +6,7 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 21:06:55 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/16 15:16:30 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/17 18:50:44 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ static	void	push(t_list **src, t_list **dst)
 	t_list	*tmp;
 
 	tmp = *src;
-	
 	if (src)
 	{
 		*src = (*src)->next;
@@ -26,7 +25,7 @@ static	void	push(t_list **src, t_list **dst)
 	}
 }
 
-void	pa(t_all *ps)
+void	pa(t_all *ps, int flag)
 {
 	if (ps->stack_b)
 	{
@@ -34,10 +33,11 @@ void	pa(t_all *ps)
 		ps->len_a++;
 		ps->len_b--;
 	}
-	ft_putstr_fd("pa\n", 1);
+	if (flag)
+		ft_putstr_fd("pa\n", 1);
 }
 
-void	pb(t_all *ps)
+void	pb(t_all *ps, int flag)
 {
 	if (ps->stack_a)
 	{
@@ -45,5 +45,6 @@ void	pb(t_all *ps)
 		ps->len_a--;
 		ps->len_b++;
 	}
-	ft_putstr_fd("pb\n", 1);
+	if (flag)
+		ft_putstr_fd("pb\n", 1);
 }

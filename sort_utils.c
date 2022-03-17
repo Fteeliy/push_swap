@@ -6,7 +6,7 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 17:13:40 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/17 12:57:16 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/17 18:54:21 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	max_abs(int a, int b)
 	return (abs_(b));
 }
 
-int	count_ops(int a, int b)
+int	c_ops(int a, int b)
 {
 	if (a * b > 0)
 		return (max_abs(a, b));
@@ -38,19 +38,19 @@ void	executor(t_all *ps, t_list *el)
 {
 	while (el->score_a > 0 && el->score_b > 0 && el->score_a--
 		&& el->score_b--)
-		rrr(ps);
+		rrr(ps, 1);
 	while (el->score_a < 0 && el->score_b < 0 && el->score_a++
 		&& el->score_b++)
-		rr(ps);
+		rr(ps, 1);
 	while (el->score_a > 0 && el->score_a--)
-		rra(ps);
+		rra(ps, 1);
 	while (el->score_a < 0 && el->score_a++)
-		ra(ps);
+		ra(ps, 1);
 	while (el->score_b > 0 && el->score_b--)
-		rrb(ps);
+		rrb(ps, 1);
 	while (el->score_b < 0 && el->score_b++)
-		rb(ps);
-	pa(ps);
+		rb(ps, 1);
+	pa(ps, 1);
 }
 
 void	stack_a_sort(t_all *ps)
@@ -71,11 +71,11 @@ void	stack_a_sort(t_all *ps)
 	}
 	if (i < (len_a - i))
 		while (i--)
-			ra(ps);
+			ra(ps, 1);
 	else
 	{
 		i = len_a - i;
 		while (i--)
-			rra(ps);
+			rra(ps, 1);
 	}
 }

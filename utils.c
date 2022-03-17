@@ -6,7 +6,7 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 16:55:14 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/17 13:40:34 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/17 18:57:25 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,13 @@ void	error(char *message)
 	exit(EXIT_FAILURE);
 }
 
-void ft_swap(int *xp, int *yp)
+void	ft_swap(int *xp, int *yp)
 {
-    int temp = *xp;
-    *xp = *yp;
-    *yp = temp;
+	int	temp;
+
+	temp = *xp;
+	*xp = *yp;
+	*yp = temp;
 }
 
 void	lst_clear(t_all *ps)
@@ -33,44 +35,21 @@ void	lst_clear(t_all *ps)
 	ft_lstclear(&ps->stack_b, free);
 }
 
-void bubbleSort(int *arr, int size)
-{
-   int	i;
-   int	j;
-   
-   i = 0;
-   while(i < size - 1)
-   {
-	   j = 0;
-	   while (j < size - i - 1)
-	   {
-		    if (arr[j] > arr[j + 1])
-            	ft_swap(&arr[j], &arr[j + 1]);
-			j++;
-	   }
-	   i++;
-   }
-}
-
-void	print_arr(int *arr, int size)
+void	bubble_sort(int *arr, int size)
 {
 	int	i;
+	int	j;
 
 	i = 0;
-	while (i < size)
+	while (i < size - 1)
 	{
-		ft_putnbr_fd(arr[i], 1);
-		ft_putchar_fd('\n', 1);
+		j = 0;
+		while (j < size - i - 1)
+		{
+			if (arr[j] > arr[j + 1])
+				ft_swap(&arr[j], &arr[j + 1]);
+			j++;
+		}
 		i++;
-	}
-}
-
-void	print_lst(t_list *lst)
-{
-	while (lst)
-	{
-		ft_putnbr_fd(*(int *)lst->content, 1);
-		ft_putchar_fd('\n', 1);
-		lst = lst->next;
 	}
 }

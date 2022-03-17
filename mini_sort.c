@@ -6,7 +6,7 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 18:47:32 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/17 13:44:43 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/17 18:36:04 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ void	presort3(t_all *ps)
 	e2 = *(int *)(ps->stack_a->next->content);
 	e3 = *(int *)(ps->stack_a->next->next->content);
 	if (e2 < e1 && e2 < e3 && e1 < e3)
-		sa(ps);
+		sa(ps, 1);
 	else if (e2 < e1 && e3 < e2 && e3 < e1)
-		sa(ps);
+		sa(ps, 1);
 	else if (e1 < e2 && e3 < e2 && e1 < e3)
-		sa(ps);
+		sa(ps, 1);
 }
 
 void	sort3(t_all *ps)
@@ -40,9 +40,9 @@ void	sort3(t_all *ps)
 	e2 = *(int *)(ps->stack_a->next->content);
 	e3 = *(int *)(ps->stack_a->next->next->content);
 	if (e2 < e1 && e2 < e3 && e3 < e1)
-		ra(ps);
+		ra(ps, 1);
 	else if (e1 < e2 && e3 < e2 && e3 < e1)
-		rra(ps);
+		rra(ps, 1);
 }
 
 static	int	search_min(t_list *lst)
@@ -52,7 +52,7 @@ static	int	search_min(t_list *lst)
 	int	min;
 
 	steps = 0;
-	count = 0;	
+	count = 0;
 	min = *(int *)lst->content;
 	while (lst->next != NULL)
 	{
@@ -77,16 +77,16 @@ void	sort5(t_all *ps)
 		if (rot_score < ps->len_a - rot_score)
 		{
 			while (rot_score--)
-				ra(ps);
+				ra(ps, 1);
 		}
 		else
 		{
 			while (ps->len_a - rot_score++ > 0)
-				rra(ps);
+				rra(ps, 1);
 		}
-		pb(ps);
+		pb(ps, 1);
 	}
 	sort3(ps);
 	while (ps->len_b)
-		pa(ps);
+		pa(ps, 1);
 }
