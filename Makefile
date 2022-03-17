@@ -6,7 +6,7 @@
 #    By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/11 11:34:53 by wdwain            #+#    #+#              #
-#    Updated: 2022/03/17 18:08:43 by wdwain           ###   ########.fr        #
+#    Updated: 2022/03/17 21:50:37 by wdwain           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,6 @@ CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 HEADER = push_swap.h
 HEADER_B = push_swap.h gnl.h
-T_FILE = .bonus
 
 SRC = ft_atol.c \
 		ft_split.c \
@@ -84,11 +83,10 @@ $(NAME): $(OBJ)
 %.o: %.c $(HEADER) $(HEADER_B) Makefile
 	$(CC) $(CFLAGS) -c $< -o $@
 
-bonus: ${T_FILE}
+bonus: ${NAME_B}
 
-${T_FILE}: ${OBJ_B}
+${NAME_B}: ${OBJ_B}
 	${CC} -o ${NAME_B} ${OBJ_B}
-	@touch ${T_FILE}
 
 clean:
 	$(RM) $(OBJ)

@@ -1,4 +1,5 @@
 push_swap_tester
 .vscode
 a.out
+.gitignore
 checker_Mac
