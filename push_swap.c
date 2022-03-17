@@ -6,11 +6,12 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 11:48:20 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/16 21:10:26 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/17 13:41:03 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 int	ft_same_digits(int *arr, int size)
 {
@@ -72,7 +73,7 @@ int	parce_argv(int *arr, char **argv)
 		if (!splited)
 			error("Error\n");
 		i = 0;
-		while (splited[i])
+		while (splited != 0 && splited[i])
 		{
 			if (!flag && ft_atol(splited[i], &arr[count_argv]) == -1)
 				flag = -1;
@@ -91,7 +92,7 @@ void	init_struct_t_all(t_all *ps, int size)
 	array = (int *)malloc(sizeof(int) * size);
 	if (array == NULL)
 	{
-		free(array);
+		lst_clear(ps);
 		error("Error\n");
 	}
 	
@@ -109,8 +110,8 @@ int main(int argc, char **argv)
 {
 	t_all ps;
 	
-	if (argc < 2)
-		return (1);
+	if (argc == 1)
+		return (EXIT_SUCCESS);
 	init_struct_t_all(&ps, ft_count_arrays(&argv[1]));
 	if (parce_argv(ps.arr, &argv[1]) == -1)
 	{
@@ -122,6 +123,8 @@ int main(int argc, char **argv)
 		lst_clear(&ps);
 		error("Error\n");
 	}
+	// printf("%s\n", "Sorted arr");
+	// print_arr(ps.arr, ps.arr_size);
 	actions(&ps);
 	lst_clear(&ps);
 	return (0);

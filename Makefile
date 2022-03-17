@@ -6,13 +6,13 @@
 #    By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/11 11:34:53 by wdwain            #+#    #+#              #
-#    Updated: 2022/03/16 21:51:58 by wdwain           ###   ########.fr        #
+#    Updated: 2022/03/17 13:23:11 by wdwain           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-CC = cc
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 HEADER = push_swap.h
@@ -32,6 +32,7 @@ SRC = ft_atol.c \
 		ft_lstadd_front.c \
 		ft_strlen.c \
 		ft_strncmp.c \
+		actions.c \
 		push.c \
 		swap.c \
 		rotate.c \
@@ -46,7 +47,7 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+	${CC} -o $(NAME) $(OBJ)
 
 %.o: %.c $(HEADER) Makefile
 	$(CC) $(CFLAGS) -I$(HEADER) -c $< -o $@

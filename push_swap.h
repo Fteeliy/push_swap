@@ -6,7 +6,7 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 11:33:25 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/16 21:54:03 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/17 13:34:42 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,9 @@ typedef struct s_all
 } t_all;
 
 void	error(char *message);
-void	lst_cleaner(t_all *ps);
+void	lst_clear(t_all *ps);
 void	ft_swap(int *xp, int *yp);
+void	bubbleSort(int *arr, int size);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putchar_fd(char c, int fd);
@@ -55,11 +56,27 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 int		actions(t_all *ps);
+int		sorted(t_list *lst);
+void	presort3(t_all *ps);
 void	sort3(t_all *ps);
 void	sort5(t_all *ps);
 int		count_ops(int a, int b);
 void	executor(t_all *ps, t_list *el);
 void	stack_a_sort(t_all *ps);
 void	sort(t_all *ps);
+void	pa(t_all *ps);
+void	pb(t_all *ps);
+void	sa(t_all *ps);
+void	sb(t_all *ps);
+void	ss(t_all *ps);
+void	ra(t_all *ps);
+void	rb(t_all *ps);
+void	rr(t_all *ps);
+void	rra(t_all *ps);
+void	rrb(t_all *ps);
+void	rrr(t_all *ps);
+void	print_arr(int *arr, int size);
+void	print_lst(t_list *lst);
+
 
 #endif

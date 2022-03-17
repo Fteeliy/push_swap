@@ -6,7 +6,7 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 22:07:42 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/16 21:48:44 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/17 12:56:25 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 static void	fill_b(t_all *ps)
 {
-	while(ps->stack_a > 3)
+	while(ps->len_a > 3)
 	{
 		if (*(int *)ps->stack_a->content != ps->arr[0] 
 			&& *(int *)ps->stack_a->content != ps->arr[ps->arr_size - 1]
 			&& *(int *)ps->stack_a->content != ps->arr[ps->arr_size / 2])
 		{
 			pb(ps);
-			if (*(int *) ps->b->content < ps->arr[ps->len_arr / 2])
+			if (*(int *)ps->stack_b->content < ps->arr[ps->arr_size / 2])
 				rb(ps);
 		}
 		else
@@ -76,7 +76,7 @@ static int	scoring(t_all *ps, t_list *el, int i)
 	{
 		el->score_a = (ps->len_a - up_a);
 		el->score_b = -up_b;
-	}s
+	}
 	return (count_ops(el->score_a, el->score_b));
 }
 
@@ -91,7 +91,7 @@ t_list	*current_node(t_all *ps)
 	tmp = ps->stack_b;
 	current = ps->stack_b;
 	i = 0;
-	min = scoring(ps, tmp, i)
+	min = scoring(ps, tmp, i);
 	while (tmp->next)
 	{
 		i++;
@@ -110,11 +110,11 @@ void	sort(t_all *ps)
 {
 	t_list	*tmp;
 
-	fill_b(ps->a);
+	fill_b(ps);
 	presort3(ps);
 	while(ps->len_b > 0)
 	{
-		tmp = current(ps);
+		tmp = current_node(ps);
 		executor(ps, tmp);
 	}
 	stack_a_sort(ps);

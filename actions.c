@@ -6,7 +6,7 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 14:36:57 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/16 21:10:57 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/17 13:41:11 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	sort_distributor(t_all *ps)
 {
-	if (ps->stack_a == 2)
+	if (ps->len_a == 2)
 		sa(ps);
-	else if (ps->stack_a == 3)
+	else if (ps->len_a == 3)
 		sort3(ps);
-	else if (ps->stack_a < 6)
+	else if (ps->len_a < 6)
 		sort5(ps);
 	else
 		sort(ps);
@@ -44,7 +44,7 @@ void	fill_lst(t_all *ps)
 	i = 0;
 	while(i < ps->arr_size)
 	{
-		tmpnbr = (int *)malloc(sizeof(t_list) * 1);
+		tmpnbr = (int *)malloc(sizeof(int) * 1);
 		if (tmpnbr)
 		{
 			*tmpnbr = ps->arr[i];
@@ -54,24 +54,26 @@ void	fill_lst(t_all *ps)
 		{
 			free(tmplst);
 			free(tmpnbr);
-			lst_clear(&ps->stack_a, free);
+			ft_lstclear(&ps->stack_a, free);
 			error("Error\n");
 		}
-		ft_lstadd_back(ps->stack_a, tmpnbr);
+		ft_lstadd_back(&ps->stack_a, tmplst);
 		i++;
 	}
-	ps->arr_len_a = ps->arr_size;
+	ps->len_a = ps->arr_size;
 }
 
 int	actions(t_all *ps)
 {
 	fill_lst(ps);
-	if (sotred(ps->stack_a))
+	if (sorted(ps->stack_a))
 	{
 		lst_clear(ps);
 		return (0);
 	}
+	// print_lst(ps->stack_a);
 	bubbleSort(ps->arr, ps->arr_size);
+	// print_arr(ps->arr, ps->arr_size);
 	sort_distributor(ps);
 
 	return (0);

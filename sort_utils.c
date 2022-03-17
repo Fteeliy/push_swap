@@ -6,7 +6,7 @@
 /*   By: wdwain <wdwain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 17:13:40 by wdwain            #+#    #+#             */
-/*   Updated: 2022/03/16 21:50:51 by wdwain           ###   ########.fr       */
+/*   Updated: 2022/03/17 12:57:16 by wdwain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	count_ops(int a, int b)
 		return (max_abs(a, b));
 	else
 		return (abs_(a) + abs_(b));
+}
 
 void	executor(t_all *ps, t_list *el)
 {
@@ -59,7 +60,7 @@ void	stack_a_sort(t_all *ps)
 	int		min;
 	int		i;
 
-	lst = ps->stack_a
+	lst = ps->stack_a;
 	len_a = ps->len_a;
 	min = ps->arr[0];
 	i = 0;
